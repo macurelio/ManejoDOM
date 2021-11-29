@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Manejo DOM con JavaScript</title>
+</head>
+<body>
+    <h1 id=`titulo` onmouseover ="rojo(this)" onmouseout="azul(this)">Manejo DOM con JavaScript</h1>
+<br/>
+Nombre: <input id="nombre" type="text" onchange="convertir(this)" onfocus="cambiar(this)" onblur="reboot(this)"/>
+<br/><br/>
+Apellido: <input type="text" id="apellido" />
+<br/><br/>
+Rut: <input type="text" id="rut"/>
+<script>
+function convertir(nombreImput){
+    console.log(`Se cambian las letras a Mayuscula`);
+nombreImput.value = nombreImput.value.toUpperCase();
+}
+function rojo(titulo){
+    console.log(`Se cambia color a Rojo`);
+    titulo.style.color = `red`;
+}
+function azul(titulo){
+    console.log(`Se cambia color a azul`);
+    titulo.style.color = `blue`;
+}
+function cambiar(elementoImput){
+    elementoImput.style.background = `yellow`;
+}
+function reboot(volverImput){
+    volverImput.style.background = `none`;
+}
+document.getElementById(`apellido`).addEventListener(`focus`, apellidoNuevo);
+function apellidoNuevo(evento){
+let componente = evento.target;
+componente.style.background= `brown`;
+}
+
+document.getElementById(`rut`).addEventListener(`blur`, (evento)=> {
+    evento.target.style.background=`pink`;
+});
+
+
+</script>
+
+</body>
+</html>
